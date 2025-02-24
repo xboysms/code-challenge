@@ -3,6 +3,7 @@ import classes from "./styles.module.css"; // Adjust the path as necessary
 import WalletRow from "./WalletRow";
 import useWalletBalances from "./UseWalletBallance";
 import usePrices from "./UsePrice";
+import { Link } from "react-router";
 
 // Define supported blockchain types
 type Blockchain = "Osmosis" | "Ethereum" | "Arbitrum" | "Zilliqa" | "Neo";
@@ -35,7 +36,7 @@ const getPriority = (blockchain: Blockchain): number =>
 interface Prices {
   [currency: string]: number;
 }
-  const { prices }: { prices: Prices } = usePrices();
+const { prices }: { prices: Prices } = usePrices();
 const WalletPage: React.FC<Props> = (props: Props) => {
   const { children, ...rest } = props;
   const balances: { balances: any } = useWalletBalances();
@@ -72,7 +73,15 @@ const WalletPage: React.FC<Props> = (props: Props) => {
     });
   }, [formattedBalances, prices]);
 
-  return <div {...rest}>{rows}</div>;
+  return (
+    <div>
+      {/* <div {...rest}>{rows}</div> */}
+      <Link to="/" className="hover:text-amber-300">Go Back</Link>
+
+      <h1 className="text-2xl font-semibold text-gray-800">Problem 5: A Crude Server</h1>
+      <p className="mt-2 text-gray-600">Please run this server on a seperate project.</p>
+    </div>
+  );
 };
 
 export default WalletPage;

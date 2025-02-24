@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router";
 
 const SumToN: React.FC = () => {
   const [n, setN] = useState<number | "">("");
@@ -54,8 +55,11 @@ const SumToN: React.FC = () => {
 
   return (
     <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-xl font-bold mb-4">Sum to N Calculator</h2>
+      <div className="flex w-full justify-start">
+        <Link to="/">Go Back</Link>
+      </div>
 
+      <h2 className="text-xl font-bold mb-4">Sum to N Calculator</h2>
       <input
         type="number"
         placeholder="Enter a positive number"

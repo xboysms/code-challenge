@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router";
 
 const CurrencySwapForm: React.FC = () => {
   const [fromCurrency, setFromCurrency] = useState("USD");
@@ -70,8 +71,11 @@ const CurrencySwapForm: React.FC = () => {
 
   return (
     <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
-      <h2 className="text-xl font-bold mb-4">Currency Swap</h2>
+      <div className="flex w-full justify-start">
+        <Link to="/">Go Back</Link>
+      </div>
 
+      <h2 className="text-xl font-bold mb-4">Currency Swap</h2>
       {loading && <p className="text-blue-500">Loading exchange rates...</p>}
       {error && <p className="text-red-500">{error}</p>}
 

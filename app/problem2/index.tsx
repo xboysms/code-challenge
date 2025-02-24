@@ -72,7 +72,7 @@ const CurrencySwapForm: React.FC = () => {
   return (
     <div className="max-w-md mx-auto bg-white p-6 rounded-lg shadow-lg">
       <div className="flex w-full justify-start">
-        <Link to="/">Go Back</Link>
+        <Link to="/" className="hover:text-amber-300">Go Back</Link>
       </div>
 
       <h2 className="text-xl font-bold mb-4">Currency Swap</h2>

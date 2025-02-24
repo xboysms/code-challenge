@@ -56,7 +56,7 @@ const SumToN: React.FC = () => {
   return (
     <div className="max-w-md mx-auto p-6 bg-white shadow-md rounded-lg">
       <div className="flex w-full justify-start">
-        <Link to="/">Go Back</Link>
+        <Link to="/" className="hover:text-amber-300">Go Back</Link>
       </div>
 
       <h2 className="text-xl font-bold mb-4">Sum to N Calculator</h2>

@@ -1,11 +1,24 @@
 import { Router } from "express";
-import { authenticateUser } from "../middleware/auth";
+import { authenticateUser, generateToken } from "../middleware/auth";
 import { dummyScores, updateUserScore } from "../utils/dummyData";
 
 const router = Router();
 
+// Dummy login route to generate JWT token
+router.get("/token", (req, res) => {
+    const { username } = req.body;
+    if (!username) {
+        res.status(400).json({ error: "Username is required" });
+    }
+
+    // Generate JWT token for user
+    const token = generateToken(username);
+    res.json({ token });
+});
+
 // 📌 Get top 10 leaderboard
 router.get("/leaderboard", (req, res) => {
+    const token = generateToken("player5");
     res.json({ leaderboard: dummyScores });
 });
 
